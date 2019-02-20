@@ -18,4 +18,19 @@ if($insert  = $conexion->query("INSERT INTO `equipo` (`id_equipo`, `nombre`, `ci
     echo "<h3>Datos repetidos.</h3>";
 }
 
+$mostrar = $conexion->query("SELECT * from `equipo`");
+while($info = mysqli_fetch_assoc($mostrar)){
+    $nombreInf[]= $info['nombre'];
+    $ciudadInf[] = $info['ciudad'];
+    $webInf[] = $info['web'];
+    $puntosInf[] = $info['puntos'];
+}
+$contar = count($nombreInf);
+for ($i=0; $i < $contar ; $i++) { 
+
+    echo "$nombreInf[$i] - $ciudadInf[$i] - $webInf[$i] - $puntosInf[$i]<br>";
+
+
+}
+
 }   
